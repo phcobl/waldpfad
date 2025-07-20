@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://clwa3fyqcx7rb" path="res://objects/trees/leaf_wind_noise_tex.tres" id="3_lip3o"]
 [ext_resource type="Texture2D" uid="uid://cf8jhqkf2puxk" path="res://objects/bushes/bush2_bush2.png" id="4_jja0y"]
 [ext_resource type="PackedScene" uid="uid://b3ldnq5hgr4ve" path="res://interactable.tscn" id="5_lip3o"]
-[ext_resource type="AudioStream" uid="uid://10e5dyqkxdqn" path="res://audio/patrick.wav" id="6_jja0y"]
+[ext_resource type="AudioStream" uid="uid://bv1shm8ahvbtt" path="res://audio/stella.wav" id="6_r5rdx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v4qct"]
 resource_name = "Bush2"
@@ -66,4 +66,4 @@ mesh = SubResource("ArrayMesh_3fjn1")
 
 [node name="Interactable" parent="." index="1" instance=ExtResource("5_lip3o")]
 dialogue_key = "sans"
-talk_sound = ExtResource("6_jja0y")
+talk_sound = ExtResource("6_r5rdx")

@@ -15,7 +15,7 @@ var path_basic : PathContainer
 # Queue of all paths that should spawn
 var path_queue : Array[PathContainer]= []
 
-const MAX_EXISTING_PATHS : int = 3 # How many paths are spawned in front of the player
+const MAX_EXISTING_PATHS : int = 12 # How many paths are spawned in front of the player
 const SPECIAL_ELEMENT_BUFFER : int = 6 # How man basic elements are added after each special path
 
 func _ready() -> void:

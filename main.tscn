@@ -25,9 +25,10 @@ fog_light_color = Color(0.1275, 0.136125, 0.15, 1)
 fog_density = 0.1943
 fog_sky_affect = 0.787
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
+volumetric_fog_density = 0.2021
 volumetric_fog_albedo = Color(0.19, 0.19, 0.19, 1)
 volumetric_fog_emission = Color(0.103744, 0.103744, 0.103744, 1)
+volumetric_fog_sky_affect = 0.737
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 
@@ -83,7 +84,6 @@ visible = false
 light_energy = 10.39
 
 [node name="EndFog" type="Node3D" parent="."]
-visible = false
 script = ExtResource("6_7mycd")
 
 [node name="FrontFog" type="FogVolume" parent="EndFog"]

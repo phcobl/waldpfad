@@ -4,7 +4,7 @@ extends Area3D
 @onready var path_machine: Node3D = $".."
 
 
-@export var remover_offset : float = 32
+@export var remover_offset : float = 128
 
 func _process(delta: float) -> void:
 	global_position = Vector3(0,0, player.global_position.z + remover_offset)
