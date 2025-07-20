@@ -1,0 +1,212 @@
+[gd_scene load_steps=11 format=3 uid="uid://br2np25m7iu6s"]
+
+[ext_resource type="Script" uid="uid://b7th3xwr5tliu" path="res://path_element.gd" id="1_d7cuo"]
+[ext_resource type="Texture2D" uid="uid://yokp0sf1s1tp" path="res://textures/path_192.png" id="2_o752w"]
+[ext_resource type="Texture2D" uid="uid://do2q2mokj71j7" path="res://textures/path_192_n.png" id="3_130fq"]
+[ext_resource type="Texture2D" uid="uid://dl8twuykfqqpf" path="res://textures/ground_plants_64.jpg" id="3_d7cuo"]
+[ext_resource type="Texture2D" uid="uid://dw8qxua4u0w5e" path="res://textures/forest_384.png" id="4_ocb1o"]
+[ext_resource type="Texture2D" uid="uid://16fioh75vkqa" path="res://textures/floor_128_normal.png" id="5_e7hqo"]
+[ext_resource type="Texture2D" uid="uid://dwmxw3gd7xfmp" path="res://textures/forest_384_n.png" id="5_mcuc0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocb1o"]
+albedo_texture = ExtResource("2_o752w")
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("3_130fq")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am4h7"]
+albedo_texture = ExtResource("3_d7cuo")
+normal_enabled = true
+normal_texture = ExtResource("5_e7hqo")
+uv1_scale = Vector3(3, 3, 3)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o752w"]
+transparency = 1
+albedo_texture = ExtResource("4_ocb1o")
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("5_mcuc0")
+texture_filter = 0
+
+[node name="PathElement" type="Node3D" groups=["path"]]
+script = ExtResource("1_d7cuo")
+
+[node name="Path" type="Node3D" parent="."]
+script = ExtResource("1_d7cuo")
+metadata/_custom_type_script = "uid://b7th3xwr5tliu"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+use_collision = true
+size = Vector3(2, 0.001, 2)
+material = SubResource("StandardMaterial3D_ocb1o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 0)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 0)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Path"]
+transform = Transform3D(8.74228e-08, -2, -1.74846e-07, -2, -8.74228e-08, 0, -7.64274e-15, 1.74846e-07, -2, -10, 1, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Path"]
+transform = Transform3D(8.74228e-08, -2, -1.74846e-07, -2, -8.74228e-08, 0, -7.64274e-15, 1.74846e-07, -2, -13, 4, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Path"]
+transform = Transform3D(8.74228e-08, -2, -1.74846e-07, -2, -8.74228e-08, 0, -7.64274e-15, 1.74846e-07, -2, -16, 7, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Path"]
+transform = Transform3D(-8.74228e-08, 2, 3.49691e-07, -2, -8.74228e-08, 0, 1.52855e-14, -3.49691e-07, 2, 10, 1, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Path"]
+transform = Transform3D(-8.74228e-08, 2, 3.49691e-07, -2, -8.74228e-08, 0, 1.52855e-14, -3.49691e-07, 2, 13, 4, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Path"]
+transform = Transform3D(-8.74228e-08, 2, 3.49691e-07, -2, -8.74228e-08, 0, 1.52855e-14, -3.49691e-07, 2, 16, 7, -6)
+use_collision = true
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_o752w")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 0)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -4)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_ocb1o")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, -4)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, -4)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, -4)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, -4)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -8)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_ocb1o")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, -8)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, -8)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, -8)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, -8)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -12)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_ocb1o")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, -12)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, -12)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, -12)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Path"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, -12)
+use_collision = true
+size = Vector3(2, 0.01, 2)
+material = SubResource("StandardMaterial3D_am4h7")
+
+[node name="LeftSpawn" type="Node3D" parent="."]
+
+[node name="Left1" type="Marker3D" parent="LeftSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
+
+[node name="Left2" type="Marker3D" parent="LeftSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76502, 0, -14)
+
+[node name="RightSpawn" type="Node3D" parent="."]
+
+[node name="Right1" type="Marker3D" parent="RightSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.765, 0, 2)
+
+[node name="Right2" type="Marker3D" parent="RightSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -14)
+
+[node name="Trees" type="Node3D" parent="."]

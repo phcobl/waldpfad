@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd7400p271q30"]
+
+[ext_resource type="Texture2D" uid="uid://yokp0sf1s1tp" path="res://textures/path_192.png" id="1_sxfpw"]
+[ext_resource type="Script" uid="uid://c8mnks7ukywlg" path="res://path_debug.gd" id="1_y2m76"]
+[ext_resource type="Texture2D" uid="uid://do2q2mokj71j7" path="res://textures/path_192_n.png" id="2_y2m76"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq18h"]
+albedo_texture = ExtResource("1_sxfpw")
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("2_y2m76")
+texture_filter = 0
+
+[node name="PathDebug" type="Node3D"]
+script = ExtResource("1_y2m76")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.0284, -1.71534, 0, 1.71534, 1.0284, 0, -0.0828254, -0.0888392)
+use_collision = true
+size = Vector3(2, 0.001, 2)
+material = SubResource("StandardMaterial3D_dq18h")

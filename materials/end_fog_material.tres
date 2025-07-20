@@ -1,0 +1,4 @@
+[gd_resource type="FogMaterial" format=3 uid="uid://cjxiqnvbmq7sp"]
+
+[resource]
+edge_fade = 1e-05

@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://kkojviyykq50"]
+
+[ext_resource type="PackedScene" uid="uid://c77qoekf02gaj" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://xjn0pcv3nsc7" path="res://textures/sky.jpg" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://br2np25m7iu6s" path="res://path_element.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://6le8anae4fhy" path="res://path_machine.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://d32kt0n5j4w4a" path="res://path_remover.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cw6q2cyh4kmrl" path="res://end_fog.gd" id="6_7mycd"]
+[ext_resource type="Material" uid="uid://cjxiqnvbmq7sp" path="res://materials/end_fog_material.tres" id="7_272bh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7mycd"]
+panorama = ExtResource("1_lquwl")
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("PanoramaSkyMaterial_7mycd")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+ambient_light_energy = 0.0
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.1275, 0.136125, 0.15, 1)
+fog_density = 0.1943
+fog_sky_affect = 0.787
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.19, 0.19, 0.19, 1)
+volumetric_fog_emission = Color(0.103744, 0.103744, 0.103744, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+
+[node name="Main" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="Player" parent="." instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1072, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.223897, 0.952232, 0.207663, 0.845331, 0.0836925, 0.527646, 0.485062, 0.293683, -0.82369, 0, 0, 0)
+light_color = Color(0.94, 0.988, 1, 1)
+light_energy = 0.09
+
+[node name="PathMachine" type="Node3D" parent="."]
+script = ExtResource("3_h2yge")
+
+[node name="ExistingPaths" type="Node3D" parent="PathMachine"]
+
+[node name="PathElement" parent="PathMachine/ExistingPaths" instance=ExtResource("2_h2yge")]
+
+[node name="PathRemover" type="Area3D" parent="PathMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.77425)
+script = ExtResource("4_1bvp3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathMachine/PathRemover"]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="DebugLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.420323, 0.907375, 0, -0.907375, -0.420323, 0, 0, 0)
+visible = false
+light_energy = 10.39
+
+[node name="EndFog" type="Node3D" parent="."]
+script = ExtResource("6_7mycd")
+
+[node name="FrontFog" type="FogVolume" parent="EndFog"]
+size = Vector3(45, 45, 2)
+material = ExtResource("7_272bh")
+
+[node name="BackFog" type="FogVolume" parent="EndFog"]
+size = Vector3(45, 45, 2)
+material = ExtResource("7_272bh")
+
+[connection signal="body_entered" from="PathMachine/PathRemover" to="PathMachine/PathRemover" method="_on_body_entered"]

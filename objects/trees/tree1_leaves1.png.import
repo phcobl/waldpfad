@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://n1u0sf6ep7cl"
+path.s3tc="res://.godot/imported/tree1_leaves1.png-2293e2ed64c94c8215dd4116a7549cea.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6b00910c42a9d7e22ec24f36dd930597"
+}
+
+[deps]
+
+source_file="res://objects/trees/tree1_leaves1.png"
+dest_files=["res://.godot/imported/tree1_leaves1.png-2293e2ed64c94c8215dd4116a7549cea.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

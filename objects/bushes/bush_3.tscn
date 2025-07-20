@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=4 uid="uid://bjwxmp2ukqu0a"]
+
+[ext_resource type="PackedScene" uid="uid://bago4pctek4wp" path="res://objects/bushes/bush3.glb" id="1_cfdfv"]
+[ext_resource type="Shader" uid="uid://e2me7klcerne" path="res://objects/trees/bush_wind.gdshader" id="2_a1ked"]
+[ext_resource type="Texture2D" uid="uid://clwa3fyqcx7rb" path="res://objects/trees/leaf_wind_noise_tex.tres" id="3_4xej1"]
+[ext_resource type="Texture2D" uid="uid://b208uilufhqf8" path="res://objects/bushes/bush3_bush3.png" id="4_47gk7"]
+[ext_resource type="PackedScene" uid="uid://b3ldnq5hgr4ve" path="res://interactable.tscn" id="5_a1ked"]
+[ext_resource type="AudioStream" uid="uid://pjwxifixncoe" path="res://audio/stos.wav" id="6_4xej1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ns8jb"]
+resource_name = "Bush3"
+render_priority = 0
+shader = ExtResource("2_a1ked")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_47gk7")
+shader_parameter/albedo_texture_size = Vector2i(32, 32)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/noise_tex = ExtResource("3_4xej1")
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_strength = 0.2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3btkr"]
+_surfaces = [{
+"aabb": AABB(-0.5, -5.96046e-08, -0.433013, 1, 1, 0.866025),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"name": "Bush3",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/78AAAAAAAD/P/////8AAP8/AAD//wAA/7///wAAAAAAAAAA/38AAP//////fwAA//8AAP9/AAAAAP///38AAP+/AAD//wAA/z///wAAAAD/PwAAAAAAAP+//////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fusi0"]
+resource_name = "bush3_Plane_008"
+_surfaces = [{
+"aabb": AABB(-0.5, -5.96046e-08, -0.433013, 1, 1, 0.866025),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAA"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("ShaderMaterial_ns8jb"),
+"name": "Bush3",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/78AAAAAVNX/P/////9U1f8/AAD//1TV/7///wAAVNUAAAAA/38AgP//////fwCA//8AAP9/AIAAAP///38AgP+/AAD//1TV/z///wAAVNX/PwAAAABU1f+//////1TV/3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3btkr")
+
+[node name="bush3" instance=ExtResource("1_cfdfv")]
+
+[node name="Plane_002" parent="." index="0"]
+mesh = SubResource("ArrayMesh_fusi0")
+
+[node name="Interactable" parent="." index="1" instance=ExtResource("5_a1ked")]
+dialogue_key = "spacetest"
+talk_sound = ExtResource("6_4xej1")
